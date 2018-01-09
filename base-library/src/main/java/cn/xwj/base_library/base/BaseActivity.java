@@ -1,12 +1,10 @@
 package cn.xwj.base_library.base;
 
 import android.os.Bundle;
-import android.support.annotation.IdRes;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 
-import cn.xwj.base_library.swipeback.SwipeBackActivityHelper;
+import cn.xwj.base_library.swipeback.SwipeBackHelper;
 import cn.xwj.easy.util.StatusBarUtils;
 
 /**
@@ -14,24 +12,23 @@ import cn.xwj.easy.util.StatusBarUtils;
  */
 
 public abstract class BaseActivity extends AppCompatActivity {
-    private SwipeBackActivityHelper mSwipeBackActivityHelper;
+    private SwipeBackHelper mSwipeBackHelper;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutId());
         StatusBarUtils.transparentStatusBar(this);
-        mSwipeBackActivityHelper = new SwipeBackActivityHelper(this);
+        mSwipeBackHelper = new SwipeBackHelper(this);
         init(savedInstanceState);
     }
 
-
-    public SwipeBackActivityHelper getSwipeBackHelper() {
-        return mSwipeBackActivityHelper;
+    public void setSwipeBackEnable(boolean enable) {
+        mSwipeBackHelper.setSwipeBackEnable(enable);
     }
 
-    public void setSwipeBackEnable(boolean enable) {
-        mSwipeBackActivityHelper.getSwipeBackLayout().setEnableGesture(enable);
+    public SwipeBackHelper getSwipeBackHelper() {
+        return mSwipeBackHelper;
     }
 
     public void init(Bundle savedInstanceState) {

@@ -501,7 +501,7 @@ public class ViewDragHelper {
      * @see #EDGE_RIGHT
      * @see #EDGE_BOTTOM
      */
-    public void setEdgeTrackingEnabled(int edgeFlags) {
+    public void setEdgeTrackingFlags(int edgeFlags) {
         mTrackingEdges = edgeFlags;
     }
 
@@ -511,7 +511,7 @@ public class ViewDragHelper {
      * tracking is enabled.
      *
      * @return The size of an edge in pixels
-     * @see #setEdgeTrackingEnabled(int)
+     * @see #setEdgeTrackingFlags(int)
      */
     public int getEdgeSize() {
         return mEdgeSize;

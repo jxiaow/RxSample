@@ -7,23 +7,16 @@ import android.arch.lifecycle.LifecycleOwner;
 import android.arch.lifecycle.OnLifecycleEvent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.view.LayoutInflater;
-import android.view.View;
-
-import cn.xwj.base_library.R;
+import android.widget.FrameLayout;
 
 import static android.arch.lifecycle.Lifecycle.Event;
 
-/**
- * @author Yrom
- */
-public class SwipeBackActivityHelper implements LifecycleObserver {
+public class SwipeBackHelper implements LifecycleObserver {
     private Lifecycle mLifecycle;
     private Activity mActivity;
-
     private SwipeBackLayout mSwipeBackLayout;
 
-    public SwipeBackActivityHelper(LifecycleOwner owner) {
+    public SwipeBackHelper(LifecycleOwner owner) {
         if (owner == null || !(owner instanceof Activity)) {
             throw new IllegalArgumentException("owner must be instanceof Activity");
         }
@@ -33,13 +26,29 @@ public class SwipeBackActivityHelper implements LifecycleObserver {
         onActivityCreate();
     }
 
+    public void setSwipeBackEnable(boolean enable) {
+        if(getSwipeBackLayout() != null){
+            getSwipeBackLayout().setEnableGesture(enable);
+        }
+
+
+    }
+    public void setEdgeTrackingFlags(int edge){
+        if(getSwipeBackLayout() != null){
+            getSwipeBackLayout().setEdgeTrackingFlags(edge);
+        }
+    }
+
+
 
     @SuppressWarnings("deprecation")
     private void onActivityCreate() {
         mActivity.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         mActivity.getWindow().getDecorView().setBackgroundDrawable(null);
-        mSwipeBackLayout = (SwipeBackLayout) LayoutInflater.from(mActivity).inflate(
-                R.layout.swipeback_layout, null);
+        mSwipeBackLayout = new SwipeBackLayout(mActivity);
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT,
+                FrameLayout.LayoutParams.MATCH_PARENT);
+        mSwipeBackLayout.setLayoutParams(layoutParams);
         mSwipeBackLayout.addSwipeListener(new SwipeBackLayout.SwipeListener() {
             @Override
             public void onScrollStateChange(int state, float scrollPercent) {
