@@ -5,35 +5,53 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="cn.xwj.rxsample.RxJava2FirstActivity">
+    tools:context="cn.xwj.rxsample.RxBackPressureActivity">
 
     <cn.xwj.easy.widget.TitleView
-        android:id="@+id/title_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
-        app:title_text="初始RxJava" />
+        app:title_text="背压" />
 
     <Button
         android:id="@+id/btn_1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="普通模式" />
+        android:text="无背压 OOM" />
 
     <Button
         android:id="@+id/btn_2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="链式结构" />
+        android:text="通过过滤发射事件，解决OOM" />
 
     <Button
         android:id="@+id/btn_3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="切断" />
+        android:text="Flowable" />
 
-    <TextView
-        android:id="@+id/result"
+    <Button
+        android:id="@+id/btn_4"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content"
+        android:text="Flowable 背压Error" />
+
+    <Button
+        android:id="@+id/btn_5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Flowable 背压Buffer" />
+
+    <Button
+        android:id="@+id/btn_6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Flowable 背压Drop" />
+
+    <Button
+        android:id="@+id/btn_7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Flowable 背压Latest" />
 </LinearLayout>

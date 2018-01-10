@@ -5,32 +5,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="cn.xwj.rxsample.RxJava2FirstActivity">
+    tools:context="cn.xwj.rxsample.RxSchedulersActivity">
 
     <cn.xwj.easy.widget.TitleView
-        android:id="@+id/title_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
-        app:title_text="初始RxJava" />
+        app:title_text="线程调度" />
 
     <Button
         android:id="@+id/btn_1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="普通模式" />
+        android:text="同一个线程" />
 
     <Button
         android:id="@+id/btn_2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="链式结构" />
+        android:text="不同线程" />
 
     <Button
         android:id="@+id/btn_3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="切断" />
+        android:text="多次指定线程" />
 
     <TextView
         android:id="@+id/result"

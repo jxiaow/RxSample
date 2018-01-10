@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 import cn.xwj.base_library.swipeback.SwipeBackHelper;
+import cn.xwj.easy.util.LogUtil;
 import cn.xwj.easy.util.StatusBarUtils;
 
 /**
@@ -31,8 +32,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         return mSwipeBackHelper;
     }
 
-    public void init(Bundle savedInstanceState) {
-    }
-
+    public abstract void init(Bundle savedInstanceState);
     public abstract int getLayoutId();
 }

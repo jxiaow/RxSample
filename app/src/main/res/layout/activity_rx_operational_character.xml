@@ -5,32 +5,37 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="cn.xwj.rxsample.RxJava2FirstActivity">
+    tools:context="cn.xwj.rxsample.RxOperationalCharacterActivity">
 
     <cn.xwj.easy.widget.TitleView
-        android:id="@+id/title_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
-        app:title_text="初始RxJava" />
+        app:title_text="操作符" />
 
     <Button
-        android:id="@+id/btn_1"
+        android:id="@+id/btn_map"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="普通模式" />
+        android:text="Map操作符" />
 
     <Button
-        android:id="@+id/btn_2"
+        android:id="@+id/btn_flat_map"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="链式结构" />
+        android:text="FlatMap操作符" />
 
     <Button
-        android:id="@+id/btn_3"
+        android:id="@+id/btn_concat_map"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="切断" />
+        android:text="concatMap操作符" />
+
+    <Button
+        android:id="@+id/btn_zip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="zip操作符" />
 
     <TextView
         android:id="@+id/result"

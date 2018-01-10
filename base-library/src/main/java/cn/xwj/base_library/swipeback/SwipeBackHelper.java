@@ -9,6 +9,8 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.widget.FrameLayout;
 
+import cn.xwj.easy.util.LogUtil;
+
 import static android.arch.lifecycle.Lifecycle.Event;
 
 public class SwipeBackHelper implements LifecycleObserver {

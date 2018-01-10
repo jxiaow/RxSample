@@ -16,7 +16,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RxJava2FirstActivity"></activity>
+        <activity android:name=".RxJava2FirstActivity" />
+        <activity android:name=".RxSchedulersActivity" />
+        <activity android:name=".RxOperationalCharacterActivity" />
+        <activity android:name=".RxBackPressureActivity" />
+        <activity android:name=".RxBufferActivity" />
+        <activity android:name=".RxEditTextSearchActivity" />
+        <activity android:name=".PollingActivity"></activity>
     </application>
 
 </manifest>
