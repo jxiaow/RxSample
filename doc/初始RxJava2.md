@@ -100,6 +100,37 @@ initialDelay：发送第一个数据项时的起始时延。
 period：两项数据之间的间隔时间。
 TimeUnit：时间单位。
 
+* repeatWhen 可以实现变长延时
+
+之所以可以通过repeatWhen来实现轮询，是因为它为我们提供了重订阅的功能，而重订阅有两点要素：
+
+上游告诉我们一次订阅已经完成，这就需要上游回调onComplete函数。
+我们告诉上游是否需要重订阅，通过repeatWhen的Function函数所返回的Observable确定，如果该Observable发送了onComplete或者onError则表示不需要重订阅，结束整个流程；否则触发重订阅的操作。
+
+* retryWhen
+
+retryWhen提供了 重订阅 的功能，对于retryWhen来说，它的重订阅触发有两点要素：
+上游通知retryWhen本次订阅流已经完成，询问其是否需要重订阅，该询问是以onError事件触发的。
+retryWhen根据onError的类型，决定是否需要重订阅，它通过返回一个ObservableSource<?>来通知，如果该ObservableSource返回onComplete/onError，那么不会触发重订阅；如果发送onNext，那么会触发重订阅。
+
+可以看到，retryWhen和repeatWhen最大的不同就是：retryWhen是收到onError后触发是否要重订阅的询问，而repeatWhen是通过onComplete触发。
+
+* combineLatest
+
+该操作符接受多个Observable以及一个函数作为参数，并且函数的签名为这些Observable发射的数据类型。当以上的任意一个Observable发射数据之后，会去取其它Observable 最近一次发射的数据，回调到函数当中，但是该函数回调的前提是所有的Observable都至少发射过一个数据项。
+
+* concat
+
+它会连接多个Observable，并且必须要等到前一个Observable的所有数据项都发送完之后，才会开始下一个Observable数据的发送。
+
+* concatEager
+
+和concat最大的不同就是多个Observable可以同时开始发射数据，如果后一个Observable发射完成后，前一个Observable还有发射完数据，那么它会将后一个Observable的数据先缓存起来，等到前一个Observable发射完毕后，才将缓存的数据发射出去。
+* merge
+
+它和concatEager一样，会让多个Observable同时开始发射数据，但是它不需要Observable之间的互相等待，而是直接发送给下游。
+
+* publish
 
 ## 背压
 

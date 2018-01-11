@@ -11,11 +11,13 @@ public class MainActivity extends BaseActivity {
 
     private ListView mListView;
     private static final String[] NAMES = {"初识 RxJava", "线程调度", "操作符", "背压",
-            "一段时间内的平均温度", "联想搜索", "定时轮询"};
+            "一段时间内的平均温度", "联想搜索", "定时轮询", "错误重试", "combineLatest", "网络和缓存数据方式"};
     private static final Class[] ACTIVITIES = {RxJava2FirstActivity.class,
             RxSchedulersActivity.class, RxOperationalCharacterActivity.class,
             RxBackPressureActivity.class, RxBufferActivity.class,
-            RxEditTextSearchActivity.class, PollingActivity.class
+            RxEditTextSearchActivity.class, PollingActivity.class,
+            RetryActivity.class, CombineLatestActivity.class,
+            RxLoadCacheNetActivity.class
     };
 
     @Override

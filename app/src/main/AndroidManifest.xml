@@ -22,7 +22,10 @@
         <activity android:name=".RxBackPressureActivity" />
         <activity android:name=".RxBufferActivity" />
         <activity android:name=".RxEditTextSearchActivity" />
-        <activity android:name=".PollingActivity"></activity>
+        <activity android:name=".PollingActivity" />
+        <activity android:name=".RetryActivity" />
+        <activity android:name=".CombineLatestActivity" />
+        <activity android:name=".RxLoadCacheNetActivity" />
     </application>
 
 </manifest>
